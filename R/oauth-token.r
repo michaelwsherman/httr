@@ -250,12 +250,11 @@ Token2.0 <- R6::R6Class("Token2.0", inherit = Token, list(
 #' token <- oauth_service_token(endpoint, secrets, scope)
 #' }
 oauth_service_token <- function(endpoint, secrets, scope = NULL) {
-  print("evil test")
- # TokenServiceAccount$new(
- #   endpoint = endpoint,
- #   secrets = secrets,
- #   params = list(scope = scope)
- # )
+  TokenServiceAccount$new(
+    endpoint = endpoint,
+    secrets = secrets,
+    params = list(scope = scope)
+  )
 }
 
 #' @export
