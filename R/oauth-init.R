@@ -10,7 +10,7 @@
 #' @export
 #' @keywords internal
 init_oauth1.0 <- function(endpoint, app, permission = NULL,
-                          is_interactive = interactive()) {
+                          is_interactive = TRUE) {
 
   is_interactive = TRUE
   oauth_sig <- function(url, method, token = NULL, token_secret = NULL, ...) {
