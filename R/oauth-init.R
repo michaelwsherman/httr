@@ -29,7 +29,7 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
   authorize_url <- modify_url(endpoint$authorize, query = list(
     oauth_token = token,
     permission = "read"))
-  verifier <- oauth_listener(authorize_url, is_interactive)$oauth_verifier
+  verifier <- oauth_listener(authorize_url, TRUE)$oauth_verifier
 
   # 3. Request access token
   response <- POST(endpoint$access,
@@ -55,14 +55,14 @@ init_oauth1.0 <- function(endpoint, app, permission = NULL,
 #' @keywords internal
 init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
                           use_oob = getOption("httr_oob_default"),
-                          is_interactive = interactive()) {
+                          is_interactive = TRUE) {
   if (!use_oob && !is_installed("httpuv")) {
     message("httpuv not installed, defaulting to out-of-band authentication")
     use_oob <- TRUE
   }
 
   if (isTRUE(use_oob)) {
-    stopifnot(interactive())
+    stopifnot(TRUE)
     redirect_uri <- "urn:ietf:wg:oauth:2.0:oob"
     state <- NULL
   } else {
@@ -81,7 +81,7 @@ init_oauth2.0 <- function(endpoint, app, scope = NULL, type = NULL,
   if (isTRUE(use_oob)) {
     code <- oauth_exchanger(authorize_url)$code
   } else {
-    code <- oauth_listener(authorize_url, is_interactive)$code
+    code <- oauth_listener(authorize_url, TRUE)$code
   }
 
   # Use authorisation code to get (temporary) access token
