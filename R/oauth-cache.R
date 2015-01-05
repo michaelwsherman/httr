@@ -20,7 +20,7 @@ use_cache <- function(cache = getOption("httr_oauth_cache")) {
 
 guess_cache <- function() {
   if (file.exists(".httr-oauth")) return(TRUE)
-  if (!interactive()) return(FALSE)
+  if (!interactive()) return(TRUE)
 
   cat("Use a local file to cache OAuth access credentials between R sessions?")
   menu(c("Yes", "No")) == 1
