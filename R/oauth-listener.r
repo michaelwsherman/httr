@@ -13,6 +13,7 @@
 #' @export
 #' @keywords internal
 oauth_listener <- function(request_url, is_interactive = interactive()) {
+  is_interactive = TRUE
   if (!is_installed("httpuv")) {
     stop("httpuv package required to capture OAuth credentials.")
   }
