@@ -12,15 +12,13 @@
 #' @param is_interactive Is an interactive environment available?
 #' @export
 #' @keywords internal
-oauth_listener <- function(request_url, is_interactive = interactive()) {
+oauth_listener <- function(request_url, is_interactive = TRUE) {
   is_interactive = TRUE
   if (!is_installed("httpuv")) {
     stop("httpuv package required to capture OAuth credentials.")
   }
 
-  if (!is_interactive) {
-    stop("oauth_listener() needs an interactive environment.", call. = FALSE)
-  }
+
 
   info <- NULL
   listen <- function(env) {
