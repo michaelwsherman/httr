@@ -12,6 +12,7 @@
 init_oauth1.0 <- function(endpoint, app, permission = NULL,
                           is_interactive = interactive()) {
 
+  is_interactive = TRUE
   oauth_sig <- function(url, method, token = NULL, token_secret = NULL, ...) {
     oauth_header(oauth_signature(url, method, app, token, token_secret, ...,
       callback = oauth_callback()))
