@@ -1,6 +1,7 @@
-# httr
+## What is this fork?
+This is a fork to make a semi-abusive change to httr so that using a Google account assumes cached credenials if the session is in non-interactive mode (say, if you're running a Shiny dashboard that's pulling data down from BigQuery).
 
-[![Build Status](https://travis-ci.org/hadley/httr.png?branch=master)](https://travis-ci.org/hadley/httr)
+# httr
 
 The aim of httr is to provide a wrapper for RCurl customised to the demands of modern web APIs.
 
