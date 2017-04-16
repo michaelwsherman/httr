@@ -1,5 +1,5 @@
 ## What is this fork?
-This is a fork to make a semi-abusive change to httr so that using a Google account assumes cached credenials if the session is in non-interactive mode (say, if you're running a Shiny dashboard that's pulling data down from BigQuery).
+This is a fork to make a semi-abusive change to httr so that OAuth assumes cached credenials if the R session is in non-interactive mode (say, if you're running a Shiny dashboard that needs to authenticate to pull down data). Is very much out of date with the main httr fork.
 
 # httr
 
